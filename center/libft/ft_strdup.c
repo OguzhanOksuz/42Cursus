@@ -24,7 +24,11 @@ char	*ft_strdup(const char *s)
 	if (!rt)
 		return (0);
 	i = 0;
-	while (*s)
-		rt[i++] = *s++;
+	while (s[i])
+	{
+		rt[i] = s[i];
+		i++;
+	}
+	rt[i] = 0;
 	return (rt);
 }
