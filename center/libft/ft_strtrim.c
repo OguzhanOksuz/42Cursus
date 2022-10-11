@@ -12,59 +12,53 @@
 
 #include "libft.h"
 
-int	ft_mbyte(const char *s1, char const *set)
+int	ft_isinset(const char c, const char *set)
 {
-	int	i;
-	int	rt;
-	int	j;
+	size_t	i;
 
-	rt = 0;
 	i = 0;
-	while (s1[i])
+	while (set[i])
 	{
-		j = 0;
-		if (s1[i] == set[j])
-		{
-			while (s1[i + j] == set[j])
-			{
-				if (set[j + 1] == 0)
-				{
-					i = j + 1;
-					break ;
-				}
-			}
-		}
+		if (set[i] == c)
+			return (1);
 		i++;
-		rt++;
 	}
-	return (rt);
+	return (0);
+}
+
+int	ft_trimmedlen(const char *s1, char const *set)
+{
+	size_t	i;
+	size_t	len;
+
+	len = 0;
+	i = 0;
+	while (s1[i] && !ft_isinset(s1[i], set))
+	{
+		if (!ft_isinset(s1[i], set))
+			len++;
+		i++;
+	}
+	return (len + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*tmp;
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	tmp = (char *)malloc(ft_mbyte(s1, set) + 1);
-	i = 0;
 	j = 0;
-	while (s1[j])
+	i = 0;
+	str = malloc(sizeof(char) * ft_trimmedlen(s1, set));
+	if (!str)
+		return (0);
+	while (s1[i])
 	{
-		k = 0;
-		if (s1[j] == set[k])
-		{
-			while (s1[j + k] == set[k])
-			{
-				if (set[k + 1] == 0)
-				{
-					j += k + 1;
-					break ;
-				}
-			}
-		}
-		tmp[i++] = s1[j++];
+		if (!ft_isinset(s1[i], set))
+			str[j++] = s1[i];
+		i++;
 	}
-	return (tmp);
+	str[i] = 0;
+	return (str);
 }
