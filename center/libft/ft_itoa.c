@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 int	ft_digit(int n)
 {
@@ -44,7 +45,7 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		rt[i++] = '-';
-		n = 0;
+		n = -n;
 	}
 	while (i <= --digit)
 	{
@@ -52,4 +53,11 @@ char	*ft_itoa(int n)
 		n /= 10;
 	}
 	return (rt);
+}
+
+int	main()
+{
+	printf("%s\n",ft_itoa(-623));
+	printf("%s\n",ft_itoa(156));
+	printf("%s\n",ft_itoa(0));
 }
