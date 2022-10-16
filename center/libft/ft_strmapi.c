@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:04:33 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/14 18:09:22 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/16 23:57:53 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	int		len;
 
 	len = 0;
+	if (!s)
+		return (0);
 	while (s[len])
 		len++;
 	rt = (char *)malloc(sizeof(char) * (len + 1));

@@ -6,7 +6,7 @@
 #    By: ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 15:23:19 by ooksuz            #+#    #+#              #
-#    Updated: 2022/10/05 15:23:53 by ooksuz           ###   ########.fr        #
+#    Updated: 2022/10/17 00:11:06 by Ooksuz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,36 +58,30 @@ SRCSB =	ft_lstnew.c			\
 
 NAME = libft.a
 
-OBJS_DIR = objs/
 OBJS = $(SRCS:.c=.o)
-OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
 
 OBJSB = $(SRCSB:.c=.o)
-OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
 
-CC = clang
+CC = gcc
 
 CC_FLAGS = -Wall -Wextra -Werror
 
-$(OBJS_DIR)%.o : %.c libft.h
-	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
-	@clang $(CC_FLAGS) -c $< -o $@
-
-$(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "Libft Done !"
-
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	@ar -rc $(NAME) $(OBJS)
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCSB)
+	gcc -nostartfiles -shared -o libft.so $(OBJSB)
+
 clean:
-	rm -rf $(OBJS_DIR)
+	rm -rf $(OBJSB)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
-bonus: $(OBJECTS_BONUS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
-	@echo "Libft Bonus Done !"
+bonus: $(OBJSB)
+	@ar -rc $(NAME) $(OBJSB)
