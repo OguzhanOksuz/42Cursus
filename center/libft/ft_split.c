@@ -6,13 +6,13 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:29:56 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/14 17:50:34 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/17 17:00:39 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
+#include <stdio.h>
 int	ft_wordcount(const char *s, char c)
 {
 	int i;
@@ -39,7 +39,9 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
-	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c)));
+	if (!s)
+		return (0);
+	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
 	if (!strs)
 		return (0);
 	while (*s)
@@ -47,12 +49,16 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			len = 0;
-			while (*s && *s != c && ++len)
+			while (*s && *s != c)
+			{
+				len++;
 				s++;
-			strs[i++] = ft_substr(s - len, 0, len);
+			}
+			strs[i++] = ft_substr(s- len, 0, len);
 		}
-		s++;
+		else
+			s++;
 	}
-	strs[i] = ft_strdup("");
+	strs[i] = 0;
 	return (strs);
 }
