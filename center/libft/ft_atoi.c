@@ -6,14 +6,14 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 10:52:16 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/14 10:56:03 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/17 17:03:53 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *nptr)
 {
-	int	num;
-	int	np;
+	long long unsigned int	num;
+	int			np;
 
 	num = 0;
 	np = 1;
@@ -34,5 +34,5 @@ int	ft_atoi(const char *nptr)
 		num = 10 * num + *nptr - '0';
 		nptr++;
 	}
-	return (num * np);
+	return ((int)num * np);
 }
