@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 18:59:06 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/14 19:01:37 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/17 12:17:21 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst)
+	if (!lst)
+		return (0);
+	while (lst->next)
 		lst = lst->next;
 	return (lst);
 }

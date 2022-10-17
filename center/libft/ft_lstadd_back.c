@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 19:02:46 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/14 19:23:39 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/17 12:25:00 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	while (lst[0])
-		*lst[0] = *lst[1]->next;
-	lst[0] = new;
+	t_list	*tmp;
+
+	if (!*lst)
+	{
+		*lst = new;
+	}
+	else if (new)
+	{
+		tmp = ft_lstlast(*lst);
+		tmp->next = new;
+	}
 }
