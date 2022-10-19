@@ -1,21 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 20:02:18 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/19 11:04:31 by Ooksuz           ###   ########.fr       */
+/*   Created: 2022/10/19 19:34:39 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/19 19:34:58 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-void	ft_putchr(int c, int *len)
-{
-	if (!c)
-		len += write(1, "(NULL)", 6);
-	else
-		len += write(1, &c, 1);
-}
+#include "get_next_line.h"

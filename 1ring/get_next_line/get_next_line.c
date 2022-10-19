@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 20:02:18 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/19 11:04:31 by Ooksuz           ###   ########.fr       */
+/*   Created: 2022/10/19 18:34:22 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/19 19:35:20 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+//#include "get_next_line.h"
 
-void	ft_putchr(int c, int *len)
+# include <unistd.h>
+# include <stdlib.h>
+int	get_next_line(int fd, char **line)
 {
-	if (!c)
-		len += write(1, "(NULL)", 6);
+	int	rt;
+
+	rt = read(fd, (void *)*line, BUFFER_SIZE - 1);
+	if (rt == 0)
+		return (0);
+	else if (rt == -1)
+		return (-1);
 	else
-		len += write(1, &c, 1);
+		return (1);
 }
