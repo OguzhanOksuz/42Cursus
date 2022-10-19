@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:15:09 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/17 21:10:08 by Ooksuz           ###   ########.fr       */
+/*   Created: 2022/08/17 14:33:23 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/19 10:12:20 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_putnbr(int nbr, int *len)
+void	ft_putptr(unsigned long long int ptr, int *len, int flag)
 {
-	char	c;
-
-	if (nbr == -2147483648)
+	char		*hex;
+	
+	hex = "0123456789abcdef";
+	if (flag == 1)
 	{
-		write(1, "-2147483648", 11);
-		*len = *len + 11;
+		write (1, "0x", 2);
+		*len = *len + 2;
+		flag = 0;
 	}
-	else if (nbr > -2147483648 && nbr <= 2147483647)
+	if (ptr == 0)
 	{
-		if (nbr < 0)
-		{
-			write (1, "-", 1);
-			nbr *= -1;
-		}
-		if (nbr > 9)
-			ft_putnbr(nbr / 10, len);
-		c = 48 + (nbr % 10);
-		write(1, &c, 1);
+		write(1, "0", 1);
+		*len = *len + 1;
+	}
+	else if (ptr > 15)
+	{
+		ft_putptr(ptr / 16, len, flag);
+		*len = *len + 1;
+	}
+	else
+	{
+		write(1, &hex[ptr % 16], 1);
 		*len = *len + 1;
 	}
 }

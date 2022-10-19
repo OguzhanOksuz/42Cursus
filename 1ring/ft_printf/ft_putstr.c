@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 14:18:51 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/05 15:36:54 by ooksuz           ###   ########.fr       */
+/*   Created: 2022/08/17 14:13:14 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/19 10:12:58 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putstr(const char *str, int *len)
 {
-	size_t	i;
-	unsigned char	*str;
+	int	i;
 
 	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
-	{
-		str[i] = 0;
-		i++;
-	}
-	s = (void *)str;
+	while (str[i])
+		*len += write(1, &str[i++], 1);
 }

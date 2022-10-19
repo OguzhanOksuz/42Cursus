@@ -6,11 +6,11 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:51:30 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/17 22:59:40 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/19 10:13:20 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_specifer(va_list pa, const char specifer, int *len)
 {

@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 20:04:00 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/17 13:11:13 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/17 17:37:19 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	else
 	{
 		
-		neww
+		new
 	}
 }*/

@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 20:02:18 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/17 21:28:15 by Ooksuz           ###   ########.fr       */
+/*   Created: 2022/08/17 14:15:09 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/19 10:11:30 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_putchr(const char c, int *len)
+void	ft_putnbr(int nbr, int *len)
 {
-	write(1, &c, 1);
-	*len = *len + 1;
+	char	c;
+
+	if (nbr == -2147483648)
+		len += (write(1, "-2147483648", 11));
+	else
+	{
+		if (nbr < 0)
+		{
+			len += write (1, "-", 1);
+			nbr *= -1;
+		}
+		if (nbr > 9)
+			ft_putnbr(nbr / 10, len);
+		c = 48 + (nbr % 10);
+		len += write(1, &c, 1);
+	}
 }

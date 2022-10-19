@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 13:47:19 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/17 23:01:10 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/19 10:45:33 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	ft_putnbr(int nbr, int *len);
 void	ft_putnbru(unsigned int nbr, int *len);
 void	ft_putnbruhex(unsigned int nbr, int *len, int flag);
 void	ft_putptr(unsigned long long int ptr, int *len, int flag);
+int	ft_printf(const char *format, ...);
 #endif

@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbru.c                                       :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/17 14:20:14 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/17 21:47:00 by Ooksuz           ###   ########.fr       */
+/*   Created: 2022/08/17 11:41:01 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/19 10:03:02 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-void	ft_putnbru(unsigned int nbr, int *len)
+int	ft_printf(const char *format, ...)
 {
-	char	c;
-	if (nbr > 9)
-		ft_putnbru(nbr / 10, len);
-	c = 48 + (nbr % 10);
-	write(1, &c, 1);
-	*len = *len + 1;
+	int	i;
+	int	len;
+	va_list	pa;
+
+	len = 0;
+	i = 0;
+	va_start(pa, format);
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			ft_specifer(pa, format[i + 1], &len);
+			i++;
+		}
+		else
+		{
+			len++;
+			write(1, &format[i], 1);
+		}
+		i++;
+	}
+	va_end(pa);
+	return (len);
 }
