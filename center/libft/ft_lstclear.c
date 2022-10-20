@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 19:28:19 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/17 13:24:10 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:39:41 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
-	if (!del || !lst);
+	if (!del || !lst)
+	{
+	}
 	else
 	{
 		while (*lst && del)
@@ -26,7 +28,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 			free (lst[0]);
 			*lst = tmp;
 		}
-
 		*lst = NULL;
 	}
 }

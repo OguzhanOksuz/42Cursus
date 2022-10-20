@@ -6,16 +6,15 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:29:56 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/17 17:00:39 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:41:56 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdio.h>
 int	ft_wordcount(const char *s, char c)
 {
-	int i;
+	int	i;
 	int	count;
 
 	i = 0;
@@ -24,7 +23,7 @@ int	ft_wordcount(const char *s, char c)
 	{
 		while (s[i] == c)
 			i++;
-		if	(s[i])
+		if (s[i])
 			count++;
 		while (s[i] != c && s[i])
 			i++;
@@ -39,10 +38,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
-	if (!s)
-		return (0);
 	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
-	if (!strs)
+	if (!strs || !s)
 		return (0);
 	while (*s)
 	{
@@ -54,7 +51,7 @@ char	**ft_split(char const *s, char c)
 				len++;
 				s++;
 			}
-			strs[i++] = ft_substr(s- len, 0, len);
+			strs[i++] = ft_substr(s - len, 0, len);
 		}
 		else
 			s++;

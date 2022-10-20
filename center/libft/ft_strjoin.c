@@ -6,11 +6,20 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:06:50 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/08/14 15:12:07 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:46:26 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*ft_nullcheckerlineshorter(char const *s1, char const *s2)
+{
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	else if (!s2 && s1)
+		return (ft_strdup(s1));
+	return (0);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -20,12 +29,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*rt;
 
 	i = 0;
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	else if (!s2 && s1)
-		return (ft_strdup(s1));
-	else if (!s1 && !s2)
-		return (0);
+	if (!s1 || !s2)
+		return (ft_nullcheckerlineshorter(s1, s2));
 	rt = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!rt)
 		return (0);
@@ -42,5 +47,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	rt[len1 + len2] = 0;
-	return(rt);
+	return (rt);
 }

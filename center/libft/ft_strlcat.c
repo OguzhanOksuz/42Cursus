@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 10:22:44 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/03 14:14:16 by ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:37:50 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t dlen;
+	size_t	dlen;
 
 	i = 0;
 	dlen = 0;

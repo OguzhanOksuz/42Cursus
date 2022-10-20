@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 17:51:13 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/16 23:51:04 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:36:45 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_digit(long int n)
 
 	digit = 0;
 	if (n == 0)
-		digit = 1;;
+		digit = 1;
 	if (n < 0)
 	{
 		n *= -1;
@@ -34,11 +34,12 @@ int	ft_digit(long int n)
 
 char	*ft_itoa(int nb)
 {
-	int		digit;
-	int		i;
-	char	*rt;
-	long int	n = (long int)nb;
+	int			digit;
+	int			i;
+	char		*rt;
+	long int	n;
 
+	n = (long int)nb;
 	i = 0;
 	digit = ft_digit(n);
 	rt = (char *)malloc(sizeof(char) * (digit + 1));
@@ -55,6 +56,5 @@ char	*ft_itoa(int nb)
 		rt[digit] = n % 10 + 48;
 		n /= 10;
 	}
-
 	return (rt);
 }

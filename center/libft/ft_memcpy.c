@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 14:16:03 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/05 16:59:49 by ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:21:01 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char		*d;
 	unsigned const char	*s;
-
 
 	d = (unsigned char *)dst;
 	s = (unsigned const char *)src;

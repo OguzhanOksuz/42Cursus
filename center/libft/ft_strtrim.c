@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 15:13:49 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/03 14:15:51 by ooksuz           ###   ########.fr       */
+/*   Updated: 2022/10/20 22:38:19 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_isinset(const char c, const char *set)
 	return (0);
 }
 
-int	ft_trimlen (const char *s1, const char *set)
+int	ft_trimlen(const char *s1, const char *set)
 {
 	size_t	i;
 	size_t	j;
