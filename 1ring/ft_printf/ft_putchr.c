@@ -12,10 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_putchr(int c, int *len)
+int	ft_putchr(int c)
 {
-	if (!c)
-		len += write(1, "(NULL)", 6);
-	else
-		len += write(1, &c, 1);
+	return(write(1, &c, 1));
 }

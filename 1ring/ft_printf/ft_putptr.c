@@ -12,30 +12,20 @@
 
 #include "ft_printf.h"
 
-void	ft_putptr(unsigned long long int ptr, int *len, int flag)
+int	ft_putptr(unsigned long long int ptr, int flag)
 {
-	char		*hex;
+	char	*hex;
+	int		len;
 	
 	hex = "0123456789abcdef";
+	len = 0;
 	if (flag == 1)
 	{
-		write (1, "0x", 2);
-		*len = *len + 2;
+		len += write (1, "0x", 2);
 		flag = 0;
 	}
-	if (ptr == 0)
-	{
-		write(1, "0", 1);
-		*len = *len + 1;
-	}
-	else if (ptr > 15)
-	{
-		ft_putptr(ptr / 16, len, flag);
-		*len = *len + 1;
-	}
-	else
-	{
-		write(1, &hex[ptr % 16], 1);
-		*len = *len + 1;
-	}
+	if (ptr > 15)
+		len += ft_putptr(ptr / 16, flag);
+	len += write(1, &hex[ptr % 16], 1);
+	return (len);
 }

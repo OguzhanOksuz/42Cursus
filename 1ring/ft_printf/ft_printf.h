@@ -14,12 +14,12 @@
 # define FT_PRINTF_H
 # include <stdarg.h>
 # include <unistd.h>
-void	ft_specifer(va_list pa, const char format, int *len);
-void	ft_putchr(int c, int *len);
-void	ft_putstr(const char *str, int *len);
-void	ft_putnbr(int nbr, int *len);
-void	ft_putnbru(unsigned int nbr, int *len);
-void	ft_putnbruhex(unsigned int nbr, int *len, int flag);
-void	ft_putptr(unsigned long long int ptr, int *len, int flag);
-int		ft_printf(const char *format, ...);
+int	ft_specifer(va_list pa, const char format);
+int	ft_putchr(int c);
+int	ft_putstr(const char *str);
+int	ft_putnbr(int nbr);
+int	ft_putnbru(unsigned int nbr);
+int	ft_putnbruhex(unsigned int nbr, int flag);
+int	ft_putptr(unsigned long long int ptr, int flag);
+int	ft_printf(const char *format, ...);
 #endif

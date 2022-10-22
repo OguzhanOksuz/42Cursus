@@ -12,12 +12,15 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbru(unsigned int nbr, int *len)
+int	ft_putnbru(unsigned int nbr)
 {
 	char	c;
+	int		len;
+
+	len = 0;
 	if (nbr > 9)
-		ft_putnbru(nbr / 10, len);
+		len += ft_putnbru(nbr / 10);
 	c = 48 + (nbr % 10);
-	write(1, &c, 1);
-	*len = *len + 1;
+	len += write(1, &c, 1);
+	return (len);
 }

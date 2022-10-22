@@ -12,25 +12,23 @@
 
 #include "ft_printf.h"
 
-void	ft_specifer(va_list pa, const char specifer, int *len)
+int	ft_specifer(va_list pa, const char specifer)
 {
 	if (specifer == 'c')
-		ft_putchr(va_arg(pa, int), len);
+		return (ft_putchr(va_arg(pa, int)));
 	else if (specifer == 's')
-		ft_putstr(va_arg(pa, char *), len);
+		return (ft_putstr(va_arg(pa, char *)));
 	else if (specifer == 'p')
-		ft_putptr(va_arg(pa, unsigned long long int), len, 1);
+		return (ft_putptr(va_arg(pa, unsigned long long int), 1));
 	else if (specifer == 'd' || specifer == 'i')
-		ft_putnbr(va_arg(pa, int), len);
+		return (ft_putnbr(va_arg(pa, int)));
 	else if (specifer == 'u')
-		ft_putnbru(va_arg(pa, unsigned int), len);
+		return (ft_putnbru(va_arg(pa, unsigned int)));
 	else if (specifer == 'x')
-		ft_putnbruhex(va_arg(pa, unsigned int), len, 0);
+		return (ft_putnbruhex(va_arg(pa, unsigned int), 0));
 	else if (specifer == 'X')
-		ft_putnbruhex(va_arg(pa, unsigned int), len, 1);
+		return (ft_putnbruhex(va_arg(pa, unsigned int), 1));
 	else if (specifer == '%')
-	{
-		write(1, "%", 1);
-		*len = *len + 1;
-	}
+		return (write(1, "%", 1));
+	return (0);
 }

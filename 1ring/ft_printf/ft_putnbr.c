@@ -12,10 +12,12 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbr(int nbr, int *len)
+int	ft_putnbr(int nbr)
 {
 	char	c;
+	int		len;
 
+	len = 0;
 	if (nbr == -2147483648)
 		len += (write(1, "-2147483648", 11));
 	else
@@ -26,8 +28,9 @@ void	ft_putnbr(int nbr, int *len)
 			nbr *= -1;
 		}
 		if (nbr > 9)
-			ft_putnbr(nbr / 10, len);
+			len += ft_putnbr(nbr / 10);
 		c = 48 + (nbr % 10);
 		len += write(1, &c, 1);
 	}
+	return (len);
 }
