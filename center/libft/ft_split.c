@@ -34,27 +34,33 @@ int	ft_wordcount(const char *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
-	int		len;
-	int		i;
+	size_t	len;
+	size_t	i;
+	size_t	j;
+	size_t	flag;
 
+	flag = 1;
 	i = 0;
-	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
-	if (!strs || !s)
+	j = 0;
+	if (!s)
 		return (0);
-	while (*s)
+	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	if (!strs)
+		return (0);
+	while (s[j])
 	{
-		if (*s != c)
+		len = 0;
+		while (s[j] == c)
+			j++;
+		while (s[j] && s[j] != c)
 		{
-			len = 0;
-			while (*s && *s != c)
-			{
-				len++;
-				s++;
-			}
-			strs[i++] = ft_substr(s - len, 0, len);
+			len++;
+			j++;
+			flag = 1;
 		}
-		else
-			s++;
+		if (flag == 1)
+			strs[i++] = ft_substr(s, j - len , len);
+		flag = 0;
 	}
 	strs[i] = 0;
 	return (strs);

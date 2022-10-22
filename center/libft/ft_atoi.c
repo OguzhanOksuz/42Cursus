@@ -13,7 +13,7 @@
 int	ft_atoi(const char *nptr)
 {
 	long long unsigned int		num;
-	int				np;
+	int							np;
 
 	num = 0;
 	np = 1;

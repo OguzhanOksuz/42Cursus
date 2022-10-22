@@ -21,5 +21,5 @@ void	ft_putnbr(int nbr, int *len);
 void	ft_putnbru(unsigned int nbr, int *len);
 void	ft_putnbruhex(unsigned int nbr, int *len, int flag);
 void	ft_putptr(unsigned long long int ptr, int *len, int flag);
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 #endif
