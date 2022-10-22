@@ -25,8 +25,8 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			len += ft_specifer(pa, format[i + 1]);
 			i++;
+			len += ft_specifer(pa, *(format + i));
 		}
 		else
 		{

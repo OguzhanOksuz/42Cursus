@@ -9,14 +9,14 @@
 #    Updated: 2022/10/19 10:47:10 by Ooksuz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-SRCS =	ft_putstr.c		\
-		ft_putptr.c		\
-		ft_putnbruhex.c	\
-		ft_putnbru.c	\
-		ft_putnbr.c		\
+SRCS =	ft_specifer.c	\
 		ft_putchr.c		\
-		ft_specifer.c	\
-		ft_printf.c
+		ft_putstr.c		\
+		ft_putnbr.c		\
+		ft_putnbru.c	\
+		ft_putnbruhex.c	\
+		ft_putptr.c		\
+		ft_printf.c		\
 
 NAME = libftprintf.a
 
