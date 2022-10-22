@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/14 12:48:31 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/10/05 19:58:07 by ooksuz           ###   ########.fr       */
+/*   Created: 2022/08/14 10:32:10 by Ooksuz            #+#    #+#             */
+/*   Updated: 2022/10/05 20:45:11 by ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*strdst;
-	char	*strsrc;
+	int	i;
 
-	strdst = (char *)dst;
-	strsrc = (char *)src;
-	if (dst == src)
-		return (dst);
-	if (strsrc < strdst)
+	i = 0;
+	if (!s || !f)
 	{
-		while (n--)
-			strdst[n] = strsrc[n];
 	}
 	else
-		while (n--)
-			*strdst++ = *strsrc++;
-	return (dst);
+	{
+		while (s[i])
+		{
+			(f)(i, s + i);
+			i++;
+		}
+	}
 }
