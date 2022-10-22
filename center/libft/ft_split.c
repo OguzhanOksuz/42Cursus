@@ -31,37 +31,43 @@ int	ft_wordcount(const char *s, char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_wordput(const char *s, char c, char **strs)
 {
-	char	**strs;
-	size_t	len;
-	size_t	i;
 	size_t	j;
+	size_t	i;
 	size_t	flag;
+	size_t	len;
 
+	len = 0;
 	flag = 1;
-	i = 0;
 	j = 0;
-	if (!s)
-		return (0);
-	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
-	if (!strs)
-		return (0);
+	i = 0;
 	while (s[j])
 	{
 		len = 0;
 		while (s[j] == c)
 			j++;
-		while (s[j] && s[j] != c)
+		while (s[j] && s[j] != c && ++len)
 		{
-			len++;
 			j++;
 			flag = 1;
 		}
 		if (flag == 1)
-			strs[i++] = ft_substr(s, j - len , len);
+			strs[i++] = ft_substr(s, j - len, len);
 		flag = 0;
 	}
 	strs[i] = 0;
 	return (strs);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
+
+	if (!s)
+		return (0);
+	strs = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	if (!strs)
+		return (0);
+	return (ft_wordput(s, c, strs));
 }
