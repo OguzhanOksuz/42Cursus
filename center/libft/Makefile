@@ -65,12 +65,12 @@ OBJSB = $(SRCSB:.c=.o)
 
 CC = gcc
 
-CC_FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -rc $(NAME) $(OBJS)
+	ar -rc $(NAME) $(OBJS)
 
 clean:
 	rm -rf $(OBJSB)
