@@ -81,4 +81,4 @@ fclean: clean
 re: fclean all
 
 bonus: $(OBJSB)
-	@ar -rc $(NAME) $(OBJSB)
+	ar -rc $(NAME) $(OBJSB)

@@ -10,29 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi(const char *str)
 {
 	long long unsigned int		num;
 	int							np;
 
 	num = 0;
 	np = 1;
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-')
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
 	{
 		np = -1;
-		nptr++;
+		str++;
 	}
-	else if (*nptr == '+')
+	else if (*str == '+')
 	{
 		np = 1;
-		nptr++;
+		str++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		num = 10 * num + *nptr - '0';
-		nptr++;
+		num = 10 * num + *str - '0';
+		str++;
 	}
 	return ((int)num * np);
 }

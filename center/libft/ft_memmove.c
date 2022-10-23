@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	char	*strdst;
 	char	*strsrc;
@@ -23,11 +23,11 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 		return (dst);
 	if (strsrc < strdst)
 	{
-		while (n--)
-			strdst[n] = strsrc[n];
+		while (len--)
+			strdst[len] = strsrc[len];
 	}
 	else
-		while (n--)
+		while (len--)
 			*strdst++ = *strsrc++;
 	return (dst);
 }

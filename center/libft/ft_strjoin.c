@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_nullcheckerlineshorter(char const *s1, char const *s2)
+char	*ft_nullchecker(char const *s1, char const *s2)
 {
 	if (!s1 && s2)
 		return (ft_strdup(s2));
@@ -30,7 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	if (!s1 || !s2)
-		return (ft_nullcheckerlineshorter(s1, s2));
+		return (ft_nullchecker(s1, s2));
 	rt = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!rt)
 		return (0);
