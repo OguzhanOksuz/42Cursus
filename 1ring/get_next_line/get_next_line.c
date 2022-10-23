@@ -12,15 +12,9 @@
 
 #include "get_next_line.h"
 
-int	get_next_line(int fd, char **line)
+char	*get_next_line(int fd)
 {
-	int	rt;
-
-	rt = read(fd, (void *)*line, BUFFER_SIZE - 1);
-	if (rt == 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	else if (rt == -1)
-		return (-1);
-	else
-		return (1);
+	
 }
