@@ -14,24 +14,24 @@
 
 int	ft_putnbruhex(unsigned int nbr, int flag)
 {
-	char	*hex;
-	char	*heX;
+	char	*hex1;
+	char	*hex2;
 	int		len;
 
 	len = 0;
-	heX = "0123456789ABCDEF";
-	hex = "0123456789abcdef";
+	hex2 = "0123456789ABCDEF";
+	hex1 = "0123456789abcdef";
 	if (flag == 0)
 	{
 		if (nbr > 15)
 			len += ft_putnbruhex(nbr / 16, flag);
-		len += write(1, &hex[nbr % 16], 1);
+		len += write(1, &hex1[nbr % 16], 1);
 	}
 	else if (flag == 1)
 	{
 		if (nbr > 15)
 			len += ft_putnbruhex(nbr / 16, flag);
-		len += write(1, &heX[nbr % 16], 1);
+		len += write(1, &hex2[nbr % 16], 1);
 	}
 	return (len);
 }

@@ -14,8 +14,8 @@
 
 int	ft_printf(const char *format, ...)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	va_list	pa;
 
 	len = 0;

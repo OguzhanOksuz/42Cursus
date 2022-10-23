@@ -16,7 +16,7 @@ int	ft_putptr(unsigned long long int ptr, int flag)
 {
 	char	*hex;
 	int		len;
-	
+
 	hex = "0123456789abcdef";
 	len = 0;
 	if (flag == 1)
