@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:46:07 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/06 20:20:44 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/07 22:52:40 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+void	*ft_calloc(size_t count, size_t byte);
 size_t	ft_strlen(const char *str);
-char	*ft_strjoin(const char *s1, const char *s2);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup(const char *s1);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strchr(const char *s, int c);
 char	*ft_trim(char *Read);
 char	*ft_line(char *Read);
 char	*ft_read(int fd, char *rt);
