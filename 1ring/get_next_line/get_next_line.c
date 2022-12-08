@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:22 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/08 23:54:43 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/09 02:20:18 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ char	*ft_trim(char *rd)
 		i++;
 	len = ft_strlen(rd + i);
 	rt = (char *)malloc(sizeof(char) * (len + 1));
-	if (!rt)
-		return (NULL);
+	//if (!rt)
+	//	return (NULL);
 	while (rd[i])
 		rt[j++] = rd[i++];
 	rt[j] = 0;
+	free (rd);
 	return (rt);
 }
 
@@ -49,8 +50,8 @@ char	*ft_line(char *rd)
 	if (rd[i] == '\n')
 		i++;
 	rt = (char *)malloc(sizeof(char) * (i + 1));
-	if (!rt)
-		return (NULL);
+	//if (!rt)
+	//	return (NULL);
 	i = 0;
 	while (rd[i] && rd[i] != '\n')
 	{
@@ -61,7 +62,6 @@ char	*ft_line(char *rd)
 		rt[i++] = '\n';
 	rt[i] = 0;
 	return (rt);
-
 }
 
 char	*ft_read(int fd, char *rt)
@@ -71,23 +71,22 @@ char	*ft_read(int fd, char *rt)
 
 	count = 1;
 	rd = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (!rd)
-		return (NULL);
+	//if (!rd)
+	//	return (NULL);
 	while (count > 0)
 	{
 		count = read(fd, rd, BUFFER_SIZE);
-		if ( count == -1)
+		if (count == -1)
 		{
-			//free (rd);
-			//free (rt);
+			free(rd);
 			return (NULL);
 		}
-		rt[count] = 0;
+		rd[count] = 0;
 		rt = ft_strjoin(rt, rd);
 		if (ft_strchr(rt, '\n'))
-				break ;
+			break ;
 	}
-	//free (rd);
+	free (rd);
 	return (rt);
 }
 
@@ -96,11 +95,15 @@ char	*get_next_line(int fd)
 	static char	*rd;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	rd = ft_read(fd, rd);
-	if (!rd)
-		//free(rd);
+	if (!rd || ft_strlen(rd) < 1)
+	{
+		free(rd);
+		rd = NULL;
+		return (NULL);
+	}
 	line = ft_line(rd);
 	rd = ft_trim(rd);
 	return (line);
