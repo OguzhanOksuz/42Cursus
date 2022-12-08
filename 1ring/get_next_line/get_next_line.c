@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:22 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/08 23:46:11 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:54:43 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char	*ft_line(char *rd)
 	char	*rt;
 	int		i;
 
+	i = 0;
 	if (!rd)
 		return (NULL);
 	while (rd[i] && rd[i] != '\n')
