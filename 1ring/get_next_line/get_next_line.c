@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:22 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/08 23:00:06 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/08 23:46:11 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ char	*ft_trim(char *rd)
 	int		i;
 	char	*rt;
 	int		len;
+	int		j;
 
+	j = 0;
 	i = 0;
 	len = 0;
 	while (rd[i] && rd[i] != '\n')
@@ -29,12 +31,8 @@ char	*ft_trim(char *rd)
 	if (!rt)
 		return (NULL);
 	while (rd[i])
-	{
-		*rt = rd[i];
-		rt++;
-		i++;
-	}
-	free (rd);
+		rt[j++] = rd[i++];
+	rt[j] = 0;
 	return (rt);
 }
 
@@ -79,8 +77,8 @@ char	*ft_read(int fd, char *rt)
 		count = read(fd, rd, BUFFER_SIZE);
 		if ( count == -1)
 		{
-			free (rd);
-			free (rt);
+			//free (rd);
+			//free (rt);
 			return (NULL);
 		}
 		rt[count] = 0;
@@ -88,7 +86,7 @@ char	*ft_read(int fd, char *rt)
 		if (ft_strchr(rt, '\n'))
 				break ;
 	}
-	free (rd);
+	//free (rd);
 	return (rt);
 }
 
@@ -101,7 +99,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	rd = ft_read(fd, rd);
 	if (!rd)
-		free(rd);
+		//free(rd);
 	line = ft_line(rd);
 	rd = ft_trim(rd);
 	return (line);
