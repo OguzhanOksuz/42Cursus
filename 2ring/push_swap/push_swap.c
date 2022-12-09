@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:07:04 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 19:56:07 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/09 20:30:37 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,20 @@ int	ft_sort(int **a, int **b)
 	while (i <= b[0][0])
 	{
 		ft_printf("b[%d] = %d\n", i, b[0][i]);
+		i++;
+	}
+	ra(a);
+	i = 0;
+	while (i <= a[0][0])
+	{
+		ft_printf("a[%d] = %d\n", i, a[0][i]);
+		i++;
+	}
+	rra(a);
+	i = 0;
+	while (i <= a[0][0])
+	{
+		ft_printf("a[%d] = %d\n", i, a[0][i]);
 		i++;
 	}
 	return (1);

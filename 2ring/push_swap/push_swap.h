@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:31:04 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 19:22:14 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/09 20:29:58 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 
+
+void	rrotate(int **stack);
+void	rra(int **a);
+void	rrb(int **v);
+void	rrr(int **a, int **b);
+void	rotate(int **stack);
+void	ra(int **a);
+void	rb(int **v);
+void	rr(int **a, int **b);
 void	swap(int **stack);
 void	sa(int **a);
 void	sb(int **b);
