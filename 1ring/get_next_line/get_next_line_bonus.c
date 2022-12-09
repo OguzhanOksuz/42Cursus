@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 18:34:22 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 03:10:35 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/09 03:31:33 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,20 +85,20 @@ char	*ft_read(int fd, char *rt)
 
 char	*get_next_line(int fd)
 {
-	static char	*rd;
+	static char	*rd[1024];
 	char		*line;
 
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	rd = ft_read(fd, rd);
-	if (!rd || ft_strlen(rd) < 1)
+	rd[fd] = ft_read(fd, rd[fd]);
+	if (!rd[fd] || ft_strlen(rd[fd]) < 1)
 	{
-		free(rd);
-		rd = NULL;
+		free(rd[fd]);
+		rd[fd] = NULL;
 		return (NULL);
 	}
-	line = ft_line(line, rd);
-	rd = ft_trim(rd);
+	line = ft_line(line, rd[fd]);
+	rd[fd] = ft_trim(rd[fd]);
 	return (line);
 }
