@@ -5,6 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c		\
        push_swap_utils.c	\
+       push.c			\
+       swap.c			\
        libftprintf.a		\
        libft.a		
 

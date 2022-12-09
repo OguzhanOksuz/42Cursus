@@ -6,17 +6,19 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 17:51:59 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 18:02:15 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/09 19:32:30 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 void	swap(int **stack)
 {
-	if (*stack[0] >= 2)
+	if (stack[0][0] >= 2)
 	{
-		*stack[1] = *stack[1] + *stack[2];
-		*stack[2] = *stack[1] - *stack[2];
-		*stack[1] = *stack[1] - *stack[2];
+		stack[0][1] = stack[0][1] + stack[0][2];
+		stack[0][2] = stack[0][1] - stack[0][2];
+		stack[0][1] = stack[0][1] - stack[0][2];
 	}
 }
 
