@@ -6,14 +6,17 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 18:35:14 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 18:35:37 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/10 04:07:42 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 int	ft_numchecker(char *s)
 {
 	int	i;
 
+	i = 0;
 	while (s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')

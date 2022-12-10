@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 16:31:04 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 20:29:58 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/10 03:40:59 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ss(int **a, int **b);
 void	push(int **a, int **b);
 void	pa(int **a, int **b);
 void	pb(int **a, int **b);
+int		ft_power(int base, int power);
 int		ft_printf(char *format, ...);
 int		ft_numchecker(char *s);
 int		ft_sort(int **a, int **b);

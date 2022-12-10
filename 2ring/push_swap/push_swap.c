@@ -6,7 +6,7 @@
 /*   By: Ooksuz <ooksuz@student.42istanbul.com.tr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 19:07:04 by Ooksuz            #+#    #+#             */
-/*   Updated: 2022/12/09 22:11:38 by Ooksuz           ###   ########.fr       */
+/*   Updated: 2022/12/10 04:07:10 by Ooksuz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,29 @@
 
 int	ft_sort(int **a, int **b)
 {
-
+	int	i;
+	int	loop;
+	
+	loop = 0;
+	while (loop < 5)
+	{
+		i = 1;
+		while (i <= a[0][0])
+		{
+			if (((a[0][i] >> loop) & 1) == 0)
+				pb(a, b);
+			else
+				ra(a);
+			i++;
+		}
+		while (b[0][0])
+			pa(a, b);
+		//abs sorted?
+		loop++;
+	}
+	//negative sorted
+	ft_printf("1 = %d\n 2 = %d\n 3 = %d\n 4 = %d\n 5 = %d\n 6 = %d\n", a[0][1], a[0][2], a[0][3], a[0][4], a[0][5], a[0][6]);
+	return (1);
 }
 
 int	push_swap(int i, char **av)
